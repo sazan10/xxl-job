@@ -60,4 +60,4 @@ jobs:
     - name: List any casr reports created
       run: |
         find ./ -name "*.log" 
-        echo "s"
+        ls -l
