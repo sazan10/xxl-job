@@ -54,10 +54,10 @@ jobs:
         javac TestApplication.java
         jar cvfm TestApplication.jar manifest.txt TestApplication.class
     - name: Run Codepulse
-      run: |        
-        #find . -name '*.jar' -print -quit | xargs -I {} sh -c 'echo "Processing {}" && java -javaagent:codepulse/tracers/java/agent.jar=localhost:8765 -jar "{}"'
+      run: |
         java -javaagent:codepulse/tracers/java/agent.jar=localhost:8765 -jar TestApplication.jar
+        #find . -name '*.jar' -print -quit | xargs -I {} sh -c 'echo "Processing {}" && java -javaagent:codepulse/tracers/java/agent.jar=localhost:8765 -jar "{}"'
     - name: List any casr reports created
       run: |
-        # find ./ -name "*.casrep" 
+        find ./ -name "*.pulse" 
         echo "s"
