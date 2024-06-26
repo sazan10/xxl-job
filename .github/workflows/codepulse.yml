@@ -60,7 +60,7 @@ jobs:
     - name: Run Codepulse tracer
       run: |
         mkdir logdir
-        export CODE_PULSE_TRACE_SKIP_ACK="$CODE_PULSE_TRACE_SKIP_ACK \"yes\""
+        export CODE_PULSE_TRACE_SKIP_ACK="yes"
         java "-javaagent:codepulse/tracers/java/agent.jar=localhost:8765;log=logdir/log.txt;projectId=1" -jar TestApplication.jar
         #find . -name '*.jar' -print -quit | xargs -I {} sh -c 'echo "Processing {}" && java -javaagent:codepulse/tracers/java/agent.jar=localhost:8765 -jar "{}"'
     - name: List any casr reports created
