@@ -52,7 +52,7 @@ jobs:
       run: |
         mvn clean install -DskipTests 
         javac TestApplication.java
-        jar cvf TestApplication.jar TestApplication.class
+        jar cvfm TestApplication.jar manifest.txt TestApplication.class
     - name: Run Codepulse
       run: |        
         #find . -name '*.jar' -print -quit | xargs -I {} sh -c 'echo "Processing {}" && java -javaagent:codepulse/tracers/java/agent.jar=localhost:8765 -jar "{}"'
