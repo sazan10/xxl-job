@@ -55,7 +55,7 @@ jobs:
         jar cvfm TestApplication.jar manifest.txt TestApplication.class
     - name: Run Codepulse
       run: |
-        export CODE_PULSE_TRACE_SKIP_ACK=yes
+        export CODE_PULSE_TRACE_SKIP_ACK="$CODE_PULSE_TRACE_SKIP_ACK \"yes\""
         java -javaagent:codepulse/tracers/java/agent.jar=localhost:8765;projectId=1;log=./ -jar TestApplication.jar
         #find . -name '*.jar' -print -quit | xargs -I {} sh -c 'echo "Processing {}" && java -javaagent:codepulse/tracers/java/agent.jar=localhost:8765 -jar "{}"'
     - name: List any casr reports created
