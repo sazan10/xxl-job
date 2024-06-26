@@ -63,4 +63,4 @@ jobs:
       run: |
         find ./ -name "*.log"
         cd logdir
-        ls -l
+        cat log.txt
